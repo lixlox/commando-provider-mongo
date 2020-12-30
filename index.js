@@ -54,7 +54,7 @@ class MongoDBProvider extends SettingProvider {
             this.settings.set(guild, doc.settings);
 
             // Guild is not global, and doesn't exist currently so lets skip it.
-            if(guild !== 'global' && !(client.guilds.cache.has(doc.guild) || client.guilds.has(doc.guild))) return;
+            if(guild !== 'global' && !(client.guilds.cache.has(doc.guild) || client.guilds.get(doc.guild))) return;
 
             this.setupGuild(guild, doc.settings);
         });
